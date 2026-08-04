@@ -1,0 +1,45 @@
+backbones:
+  mamba2_130m:
+    model_id: benchang1110/mamba2-130m-hf
+    tokenizer_id: state-spaces/mamba-130m-hf
+  clinical_mamba_130m:
+    model_id: whaleloops/clinicalmamba-130m-hf
+    tokenizer_id: whaleloops/clinicalmamba-130m-hf
+  mamba3_siso_187m:
+    model_id: state-spaces/mamba3-siso-187m
+    tokenizer_id: meta-llama/Llama-3.1-8B
+  bioclinicalbert:
+    model_id: emilyalsentzer/Bio_ClinicalBERT
+    tokenizer_id: emilyalsentzer/Bio_ClinicalBERT
+  longformer:
+    model_id: allenai/longformer-base-4096
+    tokenizer_id: allenai/longformer-base-4096
+  modernbert_base:
+    model_id: answerdotai/ModernBERT-base
+    tokenizer_id: answerdotai/ModernBERT-base
+
+notesm_v2:
+  paper_backbone: mamba3_siso_187m
+  note_max_length: 2048
+  section_max_length: 512
+  chunk_max_length: 512
+  local_content_max_length: 511
+  note_pooling: final_valid_hidden_state
+  section_representation: span_mean_2
+  chunk_representation: span_mean_2
+  section_embedding_prefix: section_span2
+  chunk_embedding_prefix: chunk_span2
+  hybrid_mode: three_view_concat
+  head: mlp
+  loss: bce
+  sampling: natural
+  aux_loss_weight: 0.0
+  freeze_backbone: true
+  trainable_components:
+    - note_projection
+    - section_attention_pooling
+    - chunk_attention_pooling
+    - metadata_embeddings
+    - missing_chunk_vector
+    - prediction_head
+  dropout: 0.1

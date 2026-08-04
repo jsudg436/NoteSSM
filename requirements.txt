@@ -1,0 +1,12 @@
+pandas
+numpy
+pyyaml
+pytest
+pyarrow
+scikit-learn
+tqdm
+transformers
+accelerate
+datasets
+tokenizers
+safetensors

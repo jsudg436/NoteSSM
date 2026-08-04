@@ -1,0 +1,9 @@
+# Non-CUDA package versions recorded for the paper runtime.
+# Install a platform-compatible PyTorch/CUDA/Mamba stack separately as
+# documented in README.md before installing this file.
+-r requirements.txt
+
+pandas==3.0.5
+pyarrow==25.0.0
+scikit-learn==1.9.0
+transformers==5.14.1

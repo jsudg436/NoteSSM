@@ -1,0 +1,5 @@
+configuration,section_representation,chunk_representation,screening_seed,seed17_val_AUPRC,seed17_val_AUROC,robustness_seeds,n_robustness_seeds,three_seed_val_AUPRC_mean,three_seed_val_AUPRC_std,three_seed_val_AUROC_mean,three_seed_val_AUROC_std
+Single-summary control,Single summary,Single summary,17,0.3205,0.6774,"17,23,42",3,0.3189,0.0014,0.6765,0.0010
+Section multi-span,Two contiguous spans,Single summary,17,0.3564,0.7077,,,,,,
+Chunk multi-span,Single summary,Two contiguous spans,17,0.3539,0.7024,,,,,,
+Full multi-span,Two contiguous spans,Two contiguous spans,17,0.3631,0.7091,"17,23,42",3,0.3608,0.0021,0.7080,0.0013

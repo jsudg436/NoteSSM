@@ -1,0 +1,5 @@
+name: exp01_build_lampr
+description: Build the LAMP-R benchmark from local MIMIC-IV and MIMIC-IV-Note paths.
+data_config: ../data_lampr.local.yaml
+debug_sample: null
+

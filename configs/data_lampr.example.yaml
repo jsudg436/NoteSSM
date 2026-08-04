@@ -1,0 +1,36 @@
+paths:
+  admissions: /path/to/mimiciv/hosp/admissions.csv.gz
+  patients: /path/to/mimiciv/hosp/patients.csv.gz
+  discharge_notes: /path/to/mimic-iv-note/note/discharge.csv.gz
+  transfers: /path/to/mimiciv/hosp/transfers.csv.gz
+  services: /path/to/mimiciv/hosp/services.csv.gz
+
+output:
+  benchmark_dir: results/lampr_full_v0_2
+  reports_dir: reports
+
+cohort:
+  adult_only_if_age_available: true
+  require_tail_followup: true
+  tail_reference: dataset_max_dischtime
+  horizon_days: 30
+
+planned_admissions:
+  types:
+    - ELECTIVE
+    - SURGICAL SAME DAY ADMISSION
+  strategy: continue_search
+
+episode_merge:
+  gap_hours: 24
+
+note_timing:
+  max_note_delay_hours: 168
+
+dapt:
+  max_length: 2048
+
+splits:
+  seed: 17
+  train_frac: 0.8
+  val_frac: 0.1

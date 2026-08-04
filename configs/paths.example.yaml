@@ -1,0 +1,12 @@
+mimiciv_root: /path/to/mimiciv
+mimiciv_note_root: /path/to/mimic-iv-note
+output_root: results
+cache_root: /path/to/cache
+
+paths:
+  admissions: /path/to/mimiciv/hosp/admissions.csv.gz
+  patients: /path/to/mimiciv/hosp/patients.csv.gz
+  discharge_notes: /path/to/mimic-iv-note/note/discharge.csv.gz
+  transfers: /path/to/mimiciv/hosp/transfers.csv.gz
+  services: /path/to/mimiciv/hosp/services.csv.gz
+
