@@ -32,3 +32,10 @@ Verify external artifacts with:
 sha256sum -c SHA256SUMS.txt
 ```
 
+## Public experimental metadata
+
+[docs/EXPERIMENT_PROVENANCE.md](docs/EXPERIMENT_PROVENANCE.md) and its JSON
+companion publish an allowlisted subset of original experiment settings,
+run identifiers, and hashes. They do not publish the private archive or its
+complete manifests. The public source-file checksum manifest and this
+selected experimental metadata serve different purposes.

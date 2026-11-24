@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "prepared_on": "2026-11-24",
+  "scope": "Original joint single-summary/two-span local extraction and the original final D three-seed selection lock. Excludes later A6000 re-extractions, additional controls, and convergence suites.",
+  "verification": {
+    "metadata_source": "Four preserved section/chunk extraction provenance records and the original FINAL_SELECTION_LOCK.txt.",
+    "forward_contracts": "All four SHA256 values recomputed from the included canonical forward_contract objects.",
+    "checkpoint_and_tokenizer_hashes": "Recorded values cross-checked across the four provenance records; original checkpoint/tokenizer bytes were not rehashed in this publication audit.",
+    "upstream_revisions": "Not verified from these extraction records; tokenizer_commit_hash is empty in all four contracts. No revision value has been inferred or inserted.",
+    "run_ids": "Recorded experiment-level identifiers, not patient identifiers. Internal generation payloads are not published; the IDs cannot be reconstructed from this public subset.",
+    "evaluation": "This audit does not rerun extraction, training, or evaluation and does not independently establish the reported performance."
+  },
+  "original_final_head_selection": {
+    "selected_arm": "D",
+    "section_embedding_prefix": "section_span2",
+    "chunk_embedding_prefix": "chunk_span2",
+    "eval_splits": "val,test",
+    "seeds": "17,23,42",
+    "aux_loss_weight": "0.0",
+    "head": "mlp",
+    "loss": "bce",
+    "sampling": "natural",
+    "epochs": "5",
+    "batch_size": "64",
+    "lr": "0.001"
+  },
+  "extraction_records": [
+    {
+      "record_id": "original_joint_train_val_section",
+      "split": "train_val",
+      "input_kind": "section",
+      "extraction_batch_size": 128,
+      "checkpoint_scheduler_total_steps": 25338,
+      "joint_run_id": "12685a53c41f078c1a629d02429b0618904e286cef560874a69d565e99cfe5aa",
+      "forward_contract_sha256": "ffc4a6089ac3adc73d77fc119209fb85ea6bf76d8c8cca36b9139f36f99ccbe4",
+      "forward_contract": {
+        "checkpoint_global_step": 25338,
+        "checkpoint_sha256": "79dff12274d168c7fcabcd4aeac13e8d2e3c585bf9bd27a5b8e3ccfdc3054a70",
+        "dtype": "bf16",
+        "input_kind": "section",
+        "marker": "<SEC_SUM>",
+        "marker_id": 128269,
+        "max_length": 512,
+        "model_id": "state-spaces/mamba3-siso-187m",
+        "one_backbone_pass_per_batch": true,
+        "protocol": "mamba3_joint_s1_s2_len512_train_val",
+        "raw_text_stored": false,
+        "s1_pooling_contract": {
+          "marker_token": "<SEC_SUM>",
+          "pooling": "marker_hidden_state",
+          "representation": "sec_sum_1",
+          "vectors_per_source_row": 1
+        },
+        "s2_span_partition_pooling_contract": {
+          "coverage": "exact_no_missing_no_duplicate_content_tokens",
+          "partition": "ordered_contiguous_content_tokens_into_two_spans",
+          "pooling": "mean_hidden_state_per_nonempty_span",
+          "representation": "span_mean_2",
+          "short_input_policy": "store_nonempty_spans_only"
+        },
+        "test_accessed": false,
+        "token_ids_stored": false,
+        "tokenizer_backend_sha256": "c04adb81887edd62258f2468f090cb50cb0a9a3c817548207e63d6d7dcf40c5f",
+        "tokenizer_commit_hash": "",
+        "tokenizer_content_max_length": 511,
+        "tokenizer_fingerprint": "101c84d440ce15938c30936f31b571c1e17d21d9e8756fe8220f4764e68e9031",
+        "tokenizer_id": "meta-llama/Llama-3.1-8B",
+        "tokenizer_vocab_size": 128272
+      }
+    },
+    {
+      "record_id": "original_joint_train_val_chunk",
+      "split": "train_val",
+      "input_kind": "chunk",
+      "extraction_batch_size": 128,
+      "checkpoint_scheduler_total_steps": 25338,
+      "joint_run_id": "12685a53c41f078c1a629d02429b0618904e286cef560874a69d565e99cfe5aa",
+      "forward_contract_sha256": "a031510312243805d2c771ceedbc50aa3db5fb80d84b29c34804656434154330",
+      "forward_contract": {
+        "checkpoint_global_step": 25338,
+        "checkpoint_sha256": "79dff12274d168c7fcabcd4aeac13e8d2e3c585bf9bd27a5b8e3ccfdc3054a70",
+        "dtype": "bf16",
+        "input_kind": "chunk",
+        "marker": "<CHUNK_SUM>",
+        "marker_id": 128270,
+        "max_length": 512,
+        "model_id": "state-spaces/mamba3-siso-187m",
+        "one_backbone_pass_per_batch": true,
+        "protocol": "mamba3_joint_s1_s2_len512_train_val",
+        "raw_text_stored": false,
+        "s1_pooling_contract": {
+          "marker_token": "<CHUNK_SUM>",
+          "pooling": "marker_hidden_state",
+          "representation": "chunk_sum_1",
+          "vectors_per_source_row": 1
+        },
+        "s2_span_partition_pooling_contract": {
+          "coverage": "exact_no_missing_no_duplicate_content_tokens",
+          "partition": "ordered_contiguous_content_tokens_into_two_spans",
+          "pooling": "mean_hidden_state_per_nonempty_span",
+          "representation": "span_mean_2",
+          "short_input_policy": "store_nonempty_spans_only"
+        },
+        "test_accessed": false,
+        "token_ids_stored": false,
+        "tokenizer_backend_sha256": "c04adb81887edd62258f2468f090cb50cb0a9a3c817548207e63d6d7dcf40c5f",
+        "tokenizer_commit_hash": "",
+        "tokenizer_content_max_length": 511,
+        "tokenizer_fingerprint": "23e7ea8b1938783cf0710c35e41d71b3c0676417aab987cebbc88a1347b3587d",
+        "tokenizer_id": "meta-llama/Llama-3.1-8B",
+        "tokenizer_vocab_size": 128272
+      }
+    },
+    {
+      "record_id": "original_joint_test_section",
+      "split": "test",
+      "input_kind": "section",
+      "extraction_batch_size": 128,
+      "checkpoint_scheduler_total_steps": 25338,
+      "joint_run_id": "56d0ff0dfa20cdcec41c05c1ff484a4b58c8fd51e9e6d7dc7ffd0ace27cf2260",
+      "forward_contract_sha256": "cc9933b491117f3227cad55006ec3e552052c5818d707612fa0703d04d606d22",
+      "forward_contract": {
+        "checkpoint_global_step": 25338,
+        "checkpoint_sha256": "79dff12274d168c7fcabcd4aeac13e8d2e3c585bf9bd27a5b8e3ccfdc3054a70",
+        "dtype": "bf16",
+        "input_kind": "section",
+        "marker": "<SEC_SUM>",
+        "marker_id": 128269,
+        "max_length": 512,
+        "model_id": "state-spaces/mamba3-siso-187m",
+        "one_backbone_pass_per_batch": true,
+        "protocol": "mamba3_joint_s1_s2_len512_train_val",
+        "raw_text_stored": false,
+        "s1_pooling_contract": {
+          "marker_token": "<SEC_SUM>",
+          "pooling": "marker_hidden_state",
+          "representation": "sec_sum_1",
+          "vectors_per_source_row": 1
+        },
+        "s2_span_partition_pooling_contract": {
+          "coverage": "exact_no_missing_no_duplicate_content_tokens",
+          "partition": "ordered_contiguous_content_tokens_into_two_spans",
+          "pooling": "mean_hidden_state_per_nonempty_span",
+          "representation": "span_mean_2",
+          "short_input_policy": "store_nonempty_spans_only"
+        },
+        "test_accessed": true,
+        "token_ids_stored": false,
+        "tokenizer_backend_sha256": "c04adb81887edd62258f2468f090cb50cb0a9a3c817548207e63d6d7dcf40c5f",
+        "tokenizer_commit_hash": "",
+        "tokenizer_content_max_length": 511,
+        "tokenizer_fingerprint": "101c84d440ce15938c30936f31b571c1e17d21d9e8756fe8220f4764e68e9031",
+        "tokenizer_id": "meta-llama/Llama-3.1-8B",
+        "tokenizer_vocab_size": 128272
+      }
+    },
+    {
+      "record_id": "original_joint_test_chunk",
+      "split": "test",
+      "input_kind": "chunk",
+      "extraction_batch_size": 128,
+      "checkpoint_scheduler_total_steps": 25338,
+      "joint_run_id": "56d0ff0dfa20cdcec41c05c1ff484a4b58c8fd51e9e6d7dc7ffd0ace27cf2260",
+      "forward_contract_sha256": "8af7401795e8a956f322eed2101ef6b71783202e236cce0828905e6c1ed3a28e",
+      "forward_contract": {
+        "checkpoint_global_step": 25338,
+        "checkpoint_sha256": "79dff12274d168c7fcabcd4aeac13e8d2e3c585bf9bd27a5b8e3ccfdc3054a70",
+        "dtype": "bf16",
+        "input_kind": "chunk",
+        "marker": "<CHUNK_SUM>",
+        "marker_id": 128270,
+        "max_length": 512,
+        "model_id": "state-spaces/mamba3-siso-187m",
+        "one_backbone_pass_per_batch": true,
+        "protocol": "mamba3_joint_s1_s2_len512_train_val",
+        "raw_text_stored": false,
+        "s1_pooling_contract": {
+          "marker_token": "<CHUNK_SUM>",
+          "pooling": "marker_hidden_state",
+          "representation": "chunk_sum_1",
+          "vectors_per_source_row": 1
+        },
+        "s2_span_partition_pooling_contract": {
+          "coverage": "exact_no_missing_no_duplicate_content_tokens",
+          "partition": "ordered_contiguous_content_tokens_into_two_spans",
+          "pooling": "mean_hidden_state_per_nonempty_span",
+          "representation": "span_mean_2",
+          "short_input_policy": "store_nonempty_spans_only"
+        },
+        "test_accessed": true,
+        "token_ids_stored": false,
+        "tokenizer_backend_sha256": "c04adb81887edd62258f2468f090cb50cb0a9a3c817548207e63d6d7dcf40c5f",
+        "tokenizer_commit_hash": "",
+        "tokenizer_content_max_length": 511,
+        "tokenizer_fingerprint": "23e7ea8b1938783cf0710c35e41d71b3c0676417aab987cebbc88a1347b3587d",
+        "tokenizer_id": "meta-llama/Llama-3.1-8B",
+        "tokenizer_vocab_size": 128272
+      }
+    }
+  ]
+}

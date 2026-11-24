@@ -6,3 +6,5 @@
 *.toml text eol=lf
 *.csv text eol=lf
 
+*.json text eol=lf
+PUBLIC_RELEASE_MANIFEST.txt text eol=lf

@@ -107,6 +107,15 @@ The full frozen result artifact and per-episode predictions are not stored in
 git. They should be archived separately with their manifests and SHA256
 checksums.
 
+## Experimental Provenance
+
+Selected settings, experiment-level identifiers, and full forward contracts
+for the original joint S1/S2 extraction are published in
+[docs/EXPERIMENT_PROVENANCE.md](docs/EXPERIMENT_PROVENANCE.md), with a
+machine-readable JSON companion. The document distinguishes recomputed
+contract hashes from recorded checkpoint/tokenizer hashes and identifies
+its limited scope. It does not redistribute protected data or model weights.
+
 ## Public Release Checks
 
 Before creating a GitHub repository, run:
